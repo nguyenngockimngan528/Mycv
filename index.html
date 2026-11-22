@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Nguyễn Ngọc Kim Ngân</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #f1f5f9;
+      color: #0f172a;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .cv-container {
+      display: block;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    /* Hàng 1: Ảnh | Tên & Thông tin */
+    .cv-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 0 0 20px 0;
+      padding: 20px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(14, 60, 110, 0.05);
+    }
+
+    .avatar-box {
+      display: block;
+      width: 150px;
+      height: 185px;
+      padding: 4px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar-box img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 6px;
+    }
+
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .candidate-name {
+      margin: 0;
+      color: #0f172a;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .candidate-role {
+      margin: 6px 0 2px 0;
+      color: #0e3c6e;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .candidate-school {
+      margin: 0;
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .school-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 64px;
+      padding: 4px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .school-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 14px 0 0 0;
+      padding: 12px 0 0 0;
+      border-top: 1px solid #e2e8f0;
+      font-size: 13.5px;
+      color: #334155;
+    }
+
+    /* Các khối nội dung */
+    .cv-section {
+      display: block;
+      margin: 0 0 20px 0;
+      padding: 20px 22px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+    }
+
+    .cv-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      display: block;
+      margin: 0 0 14px 0;
+      padding: 0 0 8px 0;
+      color: #0e3c6e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Hàng 3: 2 cột Kỹ năng | Kinh nghiệm & Đồ án */
+    .cv-columns {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 20px;
+      margin: 0 0 20px 0;
+    }
+
+    .cv-columns .cv-section {
+      margin-bottom: 0;
+    }
+
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 8px 0;
+      padding: 10px 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .skill-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-desc {
+      margin-top: 2px;
+      color: #475569;
+      font-size: 12.5px;
+    }
+
+    .skill-level {
+      color: #0e3c6e;
+      font-size: 12.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .project-top h3 {
+      margin: 0;
+      font-size: 17px;
+      color: #0f172a;
+    }
+
+    .period {
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .project-meta {
+      margin: 4px 0 2px 0;
+      color: #0e3c6e;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-stack {
+      margin: 0 0 10px 0;
+      color: #475569;
+      font-family: "Courier New", monospace;
+      font-size: 12.5px;
+    }
+
+    .text-body {
+      margin: 0 0 10px 0;
+      color: #334155;
+      font-size: 14.5px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #475569;
+      font-size: 13.5px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .edu-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .edu-title {
+      margin: 0;
+      font-size: 16px;
+      color: #0f172a;
+    }
+
+    .edu-sub {
+      margin: 3px 0;
+      color: #0e3c6e;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 720px) {
+      .cv-columns,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- Hàng 1: Ảnh | Tên & Thông tin -->
+    <header class="cv-header">
+      <div class="avatar-box">
+        <!-- Thay đường dẫn ảnh chân dung của bạn nếu mở file độc lập trên máy -->
+        <img src="https://cdn.phototourl.com/anon/2026-11-22-d20f9c4f-6fbb-4596-8b4b-7e2489a17561.png" alt="Ảnh chân dung Nguyễn Ngọc Kim Ngân" />
+      </div>
+
+      <div class="header-info">
+        <div class="header-top">
+          <div>
+            <h1 class="candidate-name">Nguyễn Ngọc Kim Ngân</h1>
+            <p class="candidate-role">Sinh viên Khoa Công nghệ Thông tin A · Khóa K52</p>
+            <p class="candidate-school">Trường Đại học Sư phạm Thành phố Hồ Chí Minh</p>
+          </div>
+          <div class="school-logo">
+            <!-- Thay đường dẫn logo trường ĐHSP TP.HCM nếu mở file độc lập trên máy -->
+            <img src="https://cdn.phototourl.com/anon/2026-11-22-4376bcb8-a1f1-449c-b180-5836c7942701.png" alt="Logo Trường Đại học Sư phạm Thành phố Hồ Chí Minh" />
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div><strong>SĐT:</strong> 0339292503</div>
+          <div><strong>Email:</strong> nguyenngockimngan52008@gmail.com</div>
+          <div><strong>Vị trí:</strong> Huyện Bình Chánh, TP. Hồ Chí Minh</div>
+          <div><strong>GitHub:</strong> github.com/nguyenngockimngan528</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hàng 2: Giới thiệu -->
+    <section class="cv-section">
+      <h2 class="section-title">Giới thiệu</h2>
+      <p class="text-body">
+        Tôi là sinh viên Khoa Công nghệ Thông tin A (Khóa K52), Trường Đại học Sư phạm Thành phố Hồ Chí Minh.
+        Hiện đang rèn luyện nền tảng lập trình cơ bản và thiết kế giao diện web bằng HTML, CSS, JavaScript.
+        Mong muốn tiếp tục tích lũy kinh nghiệm thực tế thông qua các đồ án môn học và cơ hội thực tập phù hợp.
+      </p>
+    </section>
+
+    <!-- Hàng 3: Kỹ năng | Kinh nghiệm & Đồ án -->
+    <div class="cv-columns">
+      <section class="cv-section">
+        <h2 class="section-title">Kỹ năng</h2>
+        <div class="skill-item">
+          <div>
+            <strong>HTML</strong>
+            <div class="skill-desc">Xây dựng cấu trúc trang web, thẻ ngữ nghĩa và biểu mẫu cơ bản.</div>
+          </div>
+          <span class="skill-level">Cơ bản</span>
+        </div>
+        <div class="skill-item">
+          <div>
+            <strong>CSS</strong>
+            <div class="skill-desc">Định dạng màu sắc, font chữ, margin, padding, border, box-shadow, display.</div>
+          </div>
+          <span class="skill-level">Cơ bản</span>
+        </div>
+        <div class="skill-item">
+          <div>
+            <strong>JavaScript</strong>
+            <div class="skill-desc">Xử lý sự kiện cơ bản và thao tác DOM đơn giản.</div>
+          </div>
+          <span class="skill-level">Cơ bản</span>
+        </div>
+        <div class="skill-item">
+          <div>
+            <strong>C / C++</strong>
+            <div class="skill-desc">Cấu trúc điều khiển, hàm và mảng cơ bản.</div>
+          </div>
+          <span class="skill-level">Cơ bản</span>
+        </div>
+        <div class="skill-item">
+          <div>
+            <strong>Python</strong>
+            <div class="skill-desc">Biến, vòng lặp, danh sách và bài tập logic cơ bản.</div>
+          </div>
+          <span class="skill-level">Cơ bản</span>
+        </div>
+        <div class="skill-item">
+          <div>
+            <strong>Git &amp; GitHub</strong>
+            <div class="skill-desc">Lưu trữ và quản lý mã nguồn đồ án cá nhân cơ bản.</div>
+          </div>
+          <span class="skill-level">Cơ bản</span>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="section-title">Kinh nghiệm</h2>
+        <div class="project-item">
+          <div class="project-top">
+            <h3>Website bán vật dụng &amp; thức ăn cho thú cưng</h3>
+            <span class="period">2026</span>
+          </div>
+          <p class="project-meta">Đồ án thực hành Thiết kế Web · Thiết kế &amp; Lập trình giao diện</p>
+          <p class="project-stack">HTML · CSS · JavaScript cơ bản</p>
+          <p class="text-body">
+            Xây dựng trang web giới thiệu và trưng bày các sản phẩm vật dụng, phụ kiện và thức ăn cho chó mèo với bố cục rõ ràng, dễ sử dụng.
+          </p>
+          <ul>
+            <li>Thiết kế trang chủ, danh mục thức ăn &amp; vật dụng thú cưng (vòng cổ, đồ chơi, chuồng, hạt dinh dưỡng).</li>
+            <li>Áp dụng CSS cơ bản (color, background, font-family, margin, padding, border, border-radius, box-shadow, display) để trình bày thẻ sản phẩm.</li>
+            <li>Tích hợp thao tác lọc danh mục và thêm sản phẩm vào giỏ hàng minh họa bằng JavaScript cơ bản.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Hàng 4: Học vấn -->
+    <section class="cv-section">
+      <h2 class="section-title">Trình Độ Học Tập</h2>
+      <div class="edu-row">
+        <div class="school-logo">
+          <img src="https://cdn.phototourl.com/anon/2026-11-22-4376bcb8-a1f1-449c-b180-5836c7942701.png" alt="Logo Trường Đại học Sư phạm Thành phố Hồ Chí Minh" />
+        </div>
+        <div>
+          <h3 class="edu-title">Trường Đại học Sư phạm Thành phố Hồ Chí Minh</h3>
+          <p class="edu-sub">Khoa Công nghệ Thông tin A · Khóa K52 (2026 – 2030)</p>
+          <p class="text-body">Sinh viên chính quy · Đang theo học các học phần nền tảng ngành Công nghệ Thông tin</p>
+        </div>
+      </div>
+      <ul>
+        <li>Thiết kế Web căn bản (HTML, CSS, JavaScript)</li>
+        <li>Nhập môn Lập trình (C / C++)</li>
+        <li>Lập trình Python cơ bản</li>
+        <li>Toán rời rạc &amp; Tư duy logic</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
